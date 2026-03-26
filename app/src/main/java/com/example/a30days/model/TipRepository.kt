@@ -1,7 +1,5 @@
 package com.example.a30days.model
 
-import androidx.compose.foundation.Image
-import androidx.compose.ui.res.painterResource
 import com.example.a30days.R
 
 object TipRepository {
