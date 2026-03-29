@@ -3,6 +3,7 @@ package com.example.a30days
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.SnapPosition
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,8 +31,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.a30days.model.Tip
 import com.example.a30days.model.TipRepository
 import com.example.compose._30DaysTheme
@@ -75,12 +79,19 @@ fun MonthlyTipGrid(tipList:List<Tip>, modifier:Modifier = Modifier){
             }
         ) {
             Column() {
-                Row(){
-                    Text(text = stringResource(selectedTip!!.title))
-                    Spacer(Modifier.weight(1f))
+                Box(modifier = Modifier.fillMaxWidth()){
+                    Text(
+                        text = stringResource(selectedTip!!.title),
+                        fontSize = 22.sp,
+                        fontStyle = FontStyle.Italic,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.align(Alignment.CenterStart)
+                    )
+
                     Button(onClick = {
                         selectedTip = null
-                    }
+                    },
+                        modifier = Modifier.align(Alignment.CenterEnd)
                     ) {
                         Text("Close")
                     }
